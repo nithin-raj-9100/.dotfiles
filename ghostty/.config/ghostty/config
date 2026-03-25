@@ -4,7 +4,11 @@ font-size = 18
 window-padding-balance = true
 shell-integration-features = cursor,sudo,title
 macos-option-as-alt = true
+scroll-to-bottom = no-keystroke, no-output
 keybind = shift+enter=text:\x1b\r
+keybind = ctrl+enter=scroll_to_bottom
+keybind = cmd+shift+s=write_scrollback_file:open
+keybind = cmd+shift+i=inspector:toggle
 keybind = opt+h=goto_split:left
 keybind = opt+j=goto_split:bottom
 keybind = opt+k=goto_split:top
