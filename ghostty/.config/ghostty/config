@@ -1,0 +1,11 @@
+theme = "TokyoNight Night"
+font-family = "JetBrainsMonoNL Nerd Font"
+font-size = 18
+window-padding-balance = true
+shell-integration-features = cursor,sudo,title
+macos-option-as-alt = true
+keybind = shift+enter=text:\x1b\r
+keybind = opt+h=goto_split:left
+keybind = opt+j=goto_split:bottom
+keybind = opt+k=goto_split:top
+keybind = opt+l=goto_split:right
