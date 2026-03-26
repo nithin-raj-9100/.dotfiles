@@ -1,0 +1,27 @@
+[core]
+  excludesFile = /Users/admin/.gitignore_global
+  pager = delta
+  quotepath = false
+[user]
+  name = Nithin Raj
+  pager = delta
+	quotepath = false
+[includeIf "gitdir:~/Desktop/code/personal/"]
+    path = ~/.gitconfig-personal
+[includeIf "gitdir:~/Desktop/code/work/"]
+    path = ~/.gitconfig-work
+[includeIf "gitdir:~/.dotfiles/"]
+    path = ~/.gitconfig-personal
+[coderabbit]
+	machineId = cli/2dda611ae1c441faada06e417d919033
+[push]
+	default = current
+  pruneOnPush = true
+  autoSetupRemote = true
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true    # use n and N to move between diff sections
+	light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+  line-numbers = false
+  paging = never

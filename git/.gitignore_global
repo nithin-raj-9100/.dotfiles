@@ -1,0 +1,7 @@
+.agents/*
+.agent/*
+skills-lock.json
+.claude/*
+CLAUDE.md
+AGENTS.md
+.opencode/*
