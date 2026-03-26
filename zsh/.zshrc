@@ -29,6 +29,7 @@ alias md='mkdir -p'
 alias bd="bun dev"
 alias pd="pnpm dev"
 alias cx='codex'
+alias npx='bunx'
 
 eval "$(starship init zsh)"
 export PATH="$HOME/.local/bin:$PATH"
