@@ -5,3 +5,6 @@ skills-lock.json
 CLAUDE.md
 AGENTS.md
 .opencode/*
+GEMINI.md
+.github/copilot-instructions.md
+nithin-notes/*
