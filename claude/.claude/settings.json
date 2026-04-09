@@ -39,6 +39,9 @@
     "type": "command",
     "command": "~/.claude/ccline/ccline",
     "padding": 0
+  "env": {
+    "CLAUDE_CODE_SHELL": "/bin/zsh",
+    "CLAUDE_CODE_NO_FLICKER": "1"
   },
   "effortLevel": "medium",
   "voiceEnabled": false,
