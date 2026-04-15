@@ -7,6 +7,15 @@ return {
     },
   },
 
+  -- Tmux pane navigation from within Neovim
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+    init = function()
+      vim.g.tmux_navigator_no_mappings = 1
+    end,
+  },
+
   -- File Explorer: Show hidden and ignored files by default
   {
     "folke/snacks.nvim",
@@ -21,6 +30,9 @@ return {
                 position = "right",
               },
             },
+          },
+          files = {
+            hidden = true,
           },
         },
       },
