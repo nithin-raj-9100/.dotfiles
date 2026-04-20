@@ -28,7 +28,7 @@ alias rm='trash'
 alias md='mkdir -p'
 alias bd="bun dev"
 alias pd="pnpm dev"
-alias cx='codex'
+alias cx='codex --sandbox read-only'
 alias npx='bunx'
 
 eval "$(starship init zsh)"
