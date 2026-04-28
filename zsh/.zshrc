@@ -25,7 +25,6 @@ alias pn='pnpm'
 alias oc='opencode'
 alias zedit='nvim ~/.zshrc'
 alias rm='trash'
-alias md='mkdir -p'
 alias bd="bun dev"
 alias pd="pnpm dev"
 alias cx='codex --sandbox read-only'
@@ -145,6 +144,17 @@ function cds () {
     echo "Runs only inside Tmux"
   fi
 }
+
+unalias md 2>/dev/null
+function md(){
+  if [ -z "$1" ]; then
+    echo "usage: md <directory>" >&2
+    return 1
+  fi
+
+  mkdir -p -- "$1" && cd -- "$1"
+}
+
 export EDITOR=nvim
 
 # Vite+ bin (https://viteplus.dev)
