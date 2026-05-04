@@ -1,50 +1,8 @@
 {
-  "model": "opus[1m]",
-  "hooks": {
-    "PermissionRequest": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "osascript -e 'display notification \"Claude Code needs your permission\" with title \"Claude Code Awaiting Approval\" sound name \"Ping\"'"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "osascript -e 'display notification \"Response complete\" with title \"Claude Code Finished\" sound name \"Glass\"'"
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$HOME/.claude/hooks/auto-approve-allowed-commands.sh"
-          }
-        ]
-      }
-    ]
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/ccline/ccline",
-    "padding": 0
   "env": {
     "CLAUDE_CODE_SHELL": "/bin/zsh",
     "CLAUDE_CODE_NO_FLICKER": "1"
   },
-  "effortLevel": "medium",
-  "voiceEnabled": false,
   "permissions": {
     "allow": [
       "WebFetch",
@@ -1140,7 +1098,62 @@
       "mcp__ide__getDiagnostics"
     ]
   },
-  "env": {
-    "SHELL": "/opt/homebrew/bin/bash"
-  }
+  "hooks": {
+    "PermissionRequest": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Claude Code needs your permission\" with title \"Claude Code Awaiting Approval\" sound name \"Ping\"'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Response complete\" with title \"Claude Code Finished\" sound name \"Glass\"'"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/auto-approve-allowed-commands.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/ccline/ccline",
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "figma@claude-plugins-official": true,
+    "caveman@caveman": true
+  },
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    }
+  },
+  "effortLevel": "medium",
+  "tui": "default",
+  "preferredNotifChannel": "ghostty",
+  "autoCompactEnabled": false,
+  "voiceEnabled": false,
+  "skipAutoPermissionPrompt": true
 }
