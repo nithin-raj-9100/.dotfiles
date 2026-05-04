@@ -7,3 +7,4 @@ vim.opt.signcolumn = "yes:2"
 vim.opt.swapfile = false
 vim.o.exrc = true
 vim.o.secure = true
+vim.opt.scrolloff = 9
