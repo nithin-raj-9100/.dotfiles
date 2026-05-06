@@ -1154,6 +1154,8 @@
   "tui": "default",
   "preferredNotifChannel": "ghostty",
   "autoCompactEnabled": false,
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true,
   "voiceEnabled": false,
-  "skipAutoPermissionPrompt": true
+  "model": "opus[1m]"
 }
