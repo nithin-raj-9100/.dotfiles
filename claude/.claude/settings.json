@@ -1139,7 +1139,6 @@
     "padding": 0
   },
   "enabledPlugins": {
-    "figma@claude-plugins-official": true,
     "caveman@caveman": true
   },
   "extraKnownMarketplaces": {
@@ -1156,6 +1155,5 @@
   "autoCompactEnabled": false,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": false,
-  "model": "opus[1m]"
+  "voiceEnabled": false
 }
