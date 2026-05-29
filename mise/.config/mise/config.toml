@@ -20,3 +20,18 @@ tmux = "latest"
 tokei = "latest"
 uv = "latest"
 wrangler = "latest"
+
+# Global npm CLI tools (installed via mise's npm: backend so they survive
+# node version bumps — these used to live as global `npm install -g`).
+# Note: @google/gemini-cli is omitted — already covered by `gemini` above.
+"npm:@earendil-works/pi-coding-agent" = "latest"
+"npm:@forge/cli" = "latest"
+"npm:@github/copilot" = "latest"
+"npm:@kitlangton/ghui" = "latest"
+"npm:@musistudio/claude-code-router" = "latest"
+"npm:@shopify/cli" = "latest"
+"npm:command-code" = "latest"
+"npm:eas-cli" = "latest"
+"npm:freebuff" = "latest"
+"npm:oh-my-codex" = "latest"
+"npm:vercel" = "latest"

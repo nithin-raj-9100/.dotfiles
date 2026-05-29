@@ -42,7 +42,7 @@ publish latest versions for fast-moving CLIs, so those live in mise instead:
 | Installer  | Source of truth                     | What it manages |
 | ---------- | ----------------------------------- | --------------- |
 | **Homebrew** | `Brewfile`                          | System libs, native deps, GUI casks (ghostty, karabiner, postgresql, imagemagick, watchman…) and a few stable CLIs (eza, stow, trash) |
-| **mise**     | `mise/.config/mise/config.toml`     | Fast-moving CLI tools + language runtimes: bat, fd, fzf, gh, lazygit, neovim, ripgrep, tmux, node, pnpm, codex, gemini, jq, delta… |
+| **mise**     | `mise/.config/mise/config.toml`     | Fast-moving CLI tools + language runtimes: bat, fd, fzf, gh, lazygit, neovim, ripgrep, tmux, node, pnpm, codex, gemini, jq, delta… **plus global npm CLIs** (vercel, eas-cli, @shopify/cli, copilot…) via the `npm:` backend, so they survive node upgrades |
 | **curl**     | install scripts (below)             | [starship](https://starship.rs) prompt, [bun](https://bun.sh) |
 
 - `Brewfile` — regenerate with `brew bundle dump --file=Brewfile --force`.
