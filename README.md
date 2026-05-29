@@ -34,21 +34,25 @@ Example: `git/.gitconfig` → symlinked to `~/.gitconfig`, and
 | `gh`        | GitHub CLI          | `~/.config/gh/`                       |
 | `claude`    | Claude Code         | `~/.claude/` (CLAUDE.md, settings, hooks) |
 
-## Tools I rely on
+## How tools are installed (the mix)
 
-Installed via [Homebrew](https://brew.sh). The shell (`zsh/.zshrc`) assumes
-these exist:
+Packages are split across three installers on purpose — Homebrew is slow to
+publish latest versions for fast-moving CLIs, so those live in mise instead:
 
-- **Shell/prompt:** zsh, [starship](https://starship.rs)
-- **Runtime manager:** [mise](https://mise.jdx.dev) (node, bun, pnpm, etc.)
-- **Editor:** neovim (LazyVim distro)
-- **Terminal:** ghostty
-- **Multiplexer:** tmux
-- **CLI replacements:** eza (`ls`), bat (`cat`), fzf, fd, ripgrep (`rg`), trash (`rm`), zoxide
-- **Git tooling:** git, lazygit, gh
-- **Package managers:** bun, pnpm
-- **AI tools:** claude (Claude Code), codex, opencode
-- **Keyboard:** karabiner-elements
+| Installer  | Source of truth                     | What it manages |
+| ---------- | ----------------------------------- | --------------- |
+| **Homebrew** | `Brewfile`                          | System libs, native deps, GUI casks (ghostty, karabiner, postgresql, imagemagick, watchman…) and a few stable CLIs (eza, stow, trash) |
+| **mise**     | `mise/.config/mise/config.toml`     | Fast-moving CLI tools + language runtimes: bat, fd, fzf, gh, lazygit, neovim, ripgrep, tmux, node, pnpm, codex, gemini, jq, delta… |
+| **curl**     | install scripts (below)             | [starship](https://starship.rs) prompt, [bun](https://bun.sh) |
+
+- `Brewfile` — regenerate with `brew bundle dump --file=Brewfile --force`.
+- `mise/.config/mise/config.toml` — add a tool with `mise use -g <tool>@latest`
+  (it edits this file, which is stowed and committed).
+
+The shell (`zsh/.zshrc`) assumes these exist: zsh + starship prompt, mise
+(node/bun/pnpm), neovim (LazyVim), ghostty, tmux, the CLI replacements
+eza (`ls`) / bat (`cat`) / fzf / fd / ripgrep (`rg`) / trash (`rm`) / zoxide,
+git tooling (git, lazygit, gh), and AI tools (claude, codex, gemini).
 
 ## Restoring on a new machine
 
@@ -58,23 +62,29 @@ Run these steps in order. (An agent can execute them directly.)
 # 1. Install Homebrew (if missing)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# 2. Install stow + the core tools used by the configs
-brew install stow starship mise neovim tmux \
-  eza bat fzf fd ripgrep trash zoxide \
-  lazygit gh bun pnpm
-brew install --cask ghostty karabiner-elements
+# 2. Install mise (runtime + CLI tool manager)
+brew install mise
 
 # 3. Set up an SSH key for GitHub, then clone this repo to ~/.dotfiles
 #    (remote uses an SSH host alias "github.com-personal" -> see note below)
 git clone git@github.com-personal:nithin-raj-9100/.dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
-# 4. Symlink every package into place.
-#    --adopt is NOT used; if a real file already exists stow will refuse —
-#    move/delete the conflicting file first, then re-run.
+# 4. Symlink every package into place FIRST, so the mise config is in position.
+#    If a real file already exists stow will refuse — move/delete it, then re-run.
 stow zsh git nvim tmux ghostty karabiner lazygit mise gh claude
 
-# 5. Reload the shell
+# 5. Brew-managed packages (system libs + GUI casks)
+brew bundle --file=~/.dotfiles/Brewfile
+
+# 6. mise-managed CLI tools + runtimes (reads the now-stowed config.toml)
+mise install
+
+# 7. curl-installed tools not covered by brew/mise
+curl -sS https://starship.rs/install.sh | sh
+curl -fsSL https://bun.sh/install | bash
+
+# 8. Reload the shell
 exec zsh
 ```
 
