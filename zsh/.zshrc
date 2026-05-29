@@ -27,7 +27,7 @@ alias zedit='nvim ~/.zshrc'
 alias rm='trash'
 alias bd="bun dev"
 alias pd="pnpm dev"
-alias cx='codex --sandbox read-only'
+alias cx='codex'
 alias npx='bunx'
 
 eval "$(starship init zsh)"
@@ -159,3 +159,24 @@ export EDITOR=nvim
 
 # Vite+ bin (https://viteplus.dev)
 . "$HOME/.vite-plus/env"
+
+# >>> railway initialize >>>
+source "$HOME/.railway/env"
+# <<< railway initialize <<<
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/admin/.local/bin:$PATH"
+
+# Added by Antigravity IDE
+export PATH="/Users/admin/.antigravity-ide/antigravity-ide/bin:$PATH"
+
+# Added by Antigravity IDE
+export PATH="/Users/admin/.antigravity-ide/antigravity-ide/bin:$PATH"
+
+# opencode experimental features
+export OPENCODE_EXPERIMENTAL=true
+export OPENCODE_ENABLE_EXPERIMENTAL_MODELS=true
+
+# Resend CLI
+export PATH="$HOME/.resend/bin:$PATH"
