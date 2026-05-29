@@ -1098,6 +1098,7 @@
       "mcp__ide__getDiagnostics"
     ]
   },
+  "model": "opus[1m]",
   "hooks": {
     "PermissionRequest": [
       {
@@ -1139,21 +1140,16 @@
     "padding": 0
   },
   "enabledPlugins": {
-    "caveman@caveman": true
+    "vercel@claude-plugins-official": true
   },
-  "extraKnownMarketplaces": {
-    "caveman": {
-      "source": {
-        "source": "github",
-        "repo": "JuliusBrussee/caveman"
-      }
-    }
-  },
+  "extraKnownMarketplaces": {},
   "effortLevel": "medium",
   "tui": "default",
+  "theme": "dark",
   "preferredNotifChannel": "ghostty",
   "autoCompactEnabled": false,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": false
+  "voiceEnabled": false,
+  "skipWorkflowUsageWarning": true
 }
