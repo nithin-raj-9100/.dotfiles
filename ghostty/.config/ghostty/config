@@ -2,6 +2,7 @@ theme = "TokyoNight Night"
 font-family = "JetBrainsMonoNL Nerd Font"
 font-size = 18
 window-padding-balance = true
+window-padding-y = 0,10
 shell-integration-features = cursor,sudo,title
 macos-option-as-alt = true
 scroll-to-bottom = no-keystroke, no-output
