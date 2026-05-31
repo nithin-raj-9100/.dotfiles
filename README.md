@@ -32,7 +32,7 @@ Example: `git/.gitconfig` → symlinked to `~/.gitconfig`, and
 | `lazygit`   | LazyGit             | `~/.config/lazygit/config.yml`        |
 | `mise`      | mise (runtime mgr)  | `~/.config/mise/config.toml`          |
 | `gh`        | GitHub CLI          | `~/.config/gh/`                       |
-| `claude`    | Claude Code         | `~/.claude/` (CLAUDE.md, settings, hooks) |
+| `claude`    | Claude Code         | `~/.claude/` (CLAUDE.md, settings, hooks, skills) |
 
 ## How tools are installed (the mix)
 
