@@ -1098,7 +1098,6 @@
       "mcp__ide__getDiagnostics"
     ]
   },
-  "model": "opus[1m]",
   "hooks": {
     "PermissionRequest": [
       {
@@ -1128,6 +1127,14 @@
         "hooks": [
           {
             "type": "command",
+            "command": "$HOME/.claude/hooks/deny-sed.sh"
+          },
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/deny-find-grep.sh"
+          },
+          {
+            "type": "command",
             "command": "$HOME/.claude/hooks/auto-approve-allowed-commands.sh"
           }
         ]
@@ -1143,13 +1150,15 @@
     "vercel@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {},
+  "model": "opusplan",
   "effortLevel": "medium",
+  "advisorModel": "opus",
   "tui": "default",
+  "skipWorkflowUsageWarning": true,
   "theme": "dark",
   "preferredNotifChannel": "ghostty",
   "autoCompactEnabled": false,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": false,
-  "skipWorkflowUsageWarning": true
+  "voiceEnabled": false
 }
